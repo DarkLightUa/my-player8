@@ -3,170 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Player</title>
-    
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://snrt.player.easybroadcast.io">
-    <link rel="preconnect" href="https://blogger.googleusercontent.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background: #000;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-        }
-        
-        #player-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        #player-frame {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: #000;
-            z-index: 1;
-        }
-        
-        .loading-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1001;
-            transition: opacity 0.5s;
-        }
-        
-        .loading-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        
-        .loading-image.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* --- User Counter Style --- */
-        #user-counter {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            color: white;
-            font-size: 16px; /* Adjusted size for better balance */
-            z-index: 5;
-            opacity: 0.6; /* Semi-transparent for better UX */
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            
-            /* NEW: Flexbox for aligning icon and number */
-            display: flex;
-            align-items: center;
-            gap: 6px; /* Adds a small space between icon and number */
-        }
-
-    </style>
+    <title>#000</title>
 </head>
-<body>
-    
-    <div class="loading-image" id="loadingImage">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZmRslaovrVP07DAR3DXHelJJx1FOAqt_-LyC5mGL0rC6nw28ZMku-kZ9C1gfdd09gRI85vsKgpE19r50rwM3_2rtMn_qGQg6Wk1KEaQy1GYWxpLDoi-Qt9gCa_ToPpsFrwTLzVPCEaYg7V_-E79uUIoUlYNVccisZZq8So82F9iEy7SkDMI2ZGlbgq-h4/s320/Untitled%20design%20-%202025-09-20T011659.168.png" alt="Loading">
-    </div>
-    
-    <div id="player-container">
-        
-        <!-- User Counter Icon & Number -->
-        <div id="user-counter">
-            <i class="fas fa-users"></i>
-            <!-- NEW: Span to display the viewer count -->
-            <span id="viewer-count"></span> 
-        </div>
-       
-        <iframe id="player-frame" 
-                src="https://snrt.player.easybroadcast.io/events/73_assadissa_7b7u5n1"
-                allow="autoplay; fullscreen"
-                onload="onPlayerLoad()"></iframe>
-    </div>
+<body style="background:#000; margin:0; overflow:hidden;">
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const playerFrame = document.getElementById('player-frame');
-            const loadingImage = document.getElementById('loadingImage');
-            
-            playerFrame.style.width = '100%';
-            playerFrame.style.height = '100%';
-            
-            // --- Logic to hide/show counter on fullscreen change ---
-            const userCounter = document.getElementById('user-counter');
 
-            function handleFullscreenChange() {
-                if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
-                    userCounter.style.display = 'none';
-                } else {
-                    userCounter.style.display = 'flex'; // Use flex to match CSS
-                }
-            }
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = e => { if(e.keyCode === 123 || (e.ctrlKey && e.shiftKey && [73,67,74].includes(e.keyCode)) || (e.ctrlKey && e.keyCode === 85)) return false; };
 
-            document.addEventListener('fullscreenchange', handleFullscreenChange);
-            document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-            document.addEventListener('mozfullscreenchange', handleFullscreenChange);
-            document.addEventListener('MSFullscreenChange', handleFullscreenChange);
 
-            // --- NEW: DYNAMIC VIEWER COUNT LOGIC ---
-            const viewerCountElement = document.getElementById('viewer-count');
-            const minViewers = 50; // Minimum viewers to show
-            const maxViewers = 100; // Maximum viewers to show
+        const _0xVid = "aHR0cHM6Ly9zbnJ0LnBsYXllci5lYXN5YnJvYWRjYXN0LmlvL2V2ZW50cy83M19hc3NhZGlzc2FfN2I3dTVuMQ==";
 
-            // 1. Set the initial random viewer count
-            let currentViewers = Math.floor(Math.random() * (maxViewers - minViewers + 1)) + minViewers;
-            viewerCountElement.textContent = currentViewers;
 
-            // 2. Create a function to update the count
-            function updateViewerCount() {
-                // Fluctuate by a small random number (e.g., -2, -1, 0, 1, or 2)
-                const change = Math.floor(Math.random() * 5) - 2; 
-                let newViewers = currentViewers + change;
+        const _0xCore = "PHN0eWxlPgoqIHttYXJnaW46IDA7IHBhZGRpbmc6IDA7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7fQpib2R5LCBodG1sIHtiYWNrZ3JvdW5kOiAjMDAwOyBvdmVyZmxvdzogaGlkZGVuOyBoZWlnaHQ6IDEwMCU7IHdpZHRoOiAxMDAlOyBkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsgYWxpZ24taXRlbXM6IGNlbnRlcjsgZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5zLXNlcmlmOyB1c2VyLXNlbGVjdDogbm9uZTsgLXdlYmtpdC11c2VyLXNlbGVjdDogbm9uZTt9CiNwbGF5ZXItY29udGFpbmVyIHtwb3NpdGlvbjogcmVsYXRpdmU7IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogY2VudGVyOyBhbGlnbi1pdGVtczogY2VudGVyOyB3aWR0aDogMTAwdnc7IGhlaWdodDogMTAwdmg7IGJhY2tncm91bmQ6ICMwMDA7IG92ZXJmbG93OiBoaWRkZW47fQojcGxheWVyLWZyYW1lIHt3aWR0aDogMTAwdnc7IGhlaWdodDogNTYuMjV2dzsgbWF4LWhlaWdodDogMTAwdmg7IG1heC13aWR0aDogMTc3Ljc4dmg7IGJvcmRlcjogbm9uZTsgYmFja2dyb3VuZDogIzAwMDsgei1pbmRleDogMTt9Ci5sb2FkaW5nLWltYWdlIHtwb3NpdGlvbjogYWJzb2x1dGU7IHRvcDogMDsgbGVmdDogMDsgd2lkdGg6IDEwMCU7IGxlZnQ6IDA7IGhlaWdodDogMTAwJTsgYmFja2dyb3VuZDogIzAwMDsgZGlzcGxheTogZmxleDsganVzdGlmeS1jb250ZW50OiBjZW50ZXI7IGFsaWduLWl0ZW1zOiBjZW50ZXI7IHotaW5kZXg6IDEwMDE7IHRyYW5zaXRpb246IG9wYWNpdHkgMC41czt9Ci5sb2FkaW5nLWltYWdlIGltZyB7bWF4LXdpZHRoOiAxMDAlOyBtYXgtaGVpZ2h0OiAxMDAlOyBvYmplY3QtZml0OiBjb250YWluO30KLmxvYWRpbmctaW1hZ2UuaGlkZGVuIHtvcGFjaXR5OiAwOyBwb2ludGVyLWV2ZW50czogbm9uZTt9CiN1c2VyLWNvdW50ZXIge3Bvc2l0aW9uOiBhYnNvbHV0ZTsgdG9wOiAxNXB4OyByaWdodDogMTVweDsgY29sb3I6IHdoaXRlOyBmb250LXNpemU6IDE2cHg7IHotaW5kZXg6IDU7IG9wYWNpdHk6IDAuNjsgdGV4dC1zaGFkb3c6IDFweCAxcHggM3B4IHJnYmEoMCwwLDAsMC43KTsgcG9pbnRlci1ldmVudHM6IG5vbmU7IHRyYW5zaXRpb246IG9wYWNpdHkgMC4zcyBlYXNlOyBkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogY2VudGVyOyBnYXA6IDZweDt9Cjwvc3R5bGU+CjxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9jZG5qcy5jbG91ZGZsYXJlLmNvbS9hamF4L2xpYnMvZm9udC1hd2Vzb21lLzYuNC4wL2Nzcy9hbGwubWluLmNzcyI+CjxkaXYgaWQ9Il8weHJvb3QiPjwvZGl2Pgo8c2NyaXB0PgogICAgY29uc3QgXzB4ZGYxID0gYXRvYigiWm05eWFtRnRZWEp2WXk1amIyMD0iKTsKICAgIGZ1bmN0aW9uIF8weGJ1aWxkUGxheWVyKCkgewogICAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdfMHhyb290JykuaW5uZXJIVE1MID0gYAogICAgICAgICAgICA8ZGl2IGNsYXNzPSJsb2FkaW5nLWltYWdlIiBpZD0iXzB4bGQiPgogICAgICAgICAgICAgICAgPGltZyBzcmM9Imh0dHBzOi8vYmxvZ2dlci5nb29nbGV1c2VyY29udGVudC5jb20vaW1nL2IvUjI5dloyeGwvQVZ2WHNFaVptUnNsYW92clZQMDdEQVIzRFhIZWxKSngxRk9BcXRfLUx5QzVtR0wwckM2bncyOFpNa3Uta1o5QzFnZmRkMDlnUkk4NXZzS2dwRTE5cjUwcndNM18ycnRNbl9xR1FnNldrMUtFYVF5MUdZV3hwTERvaS1RdDlnQ2FfVG9QcHNGcndUTHpWUENFYVlnN1ZfLUU3OXVVSW9VbFlOVmNjaXNaWnE4U284MkY5aUV5N1NrRE1JMlpHbGJncS1oNC9zMzIwL1VudGl0bGVkJTIwZGVzaWduJTIwLSUyMDIwMjUtMDktMjBUMDExNjU5LjE2OC5wbmciIGFsdD0iTG9hZGluZyI+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICA8ZGl2IGlkPSJwbGF5ZXItY29udGFpbmVyIj4KICAgICAgICAgICAgICAgIDxkaXYgaWQ9InVzZXItY291bnRlciI+PGkgY2xhc3M9ImZhcyBmYS11c2VycyI+PC9pPjxzcGFuIGlkPSJfMHh2YyI+PC9zcGFuPiA8L2Rpdj4KICAgICAgICAgICAgICAgIDxpZnJhbWUgaWQ9InBsYXllci1mcmFtZSIgc3JjPSJDSEFOTkVMX1VSTF9QTEFDRUhPTERFUiIgYWxsb3c9ImF1dG9wbGF5OyBmdWxsc2NyZWVuIiBvbmxvYWQ9ImRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdfMHhsZCcpLmNsYXNzTGlzdC5hZGQoJ2hpZGRlbicpOyI+PC9pZnJhbWU+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgIGA7CiAgICAgICAgY29uc3QgXzB4dWMgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndXNlci1jb3VudGVyJyk7CiAgICAgICAgY29uc3QgXzB4ZnMgPSAoKSA9PiB7IF8weHVjLnN0eWxlLmRpc3BsYXkgPSAoZG9jdW1lbnQuZnVsbHNjcmVlbkVsZW1lbnQgfHwgZG9jdW1lbnQud2Via2l0RnVsbHNjcmVlbkVsZW1lbnQgfHwgZG9jdW1lbnQubW96RnVsbFNjcmVlbkVsZW1lbnQgfHwgZG9jdW1lbnQubXNGdWxsc2NyZWVuRWxlbWVudCkgPyAnbm9uZScgOiAnZmxleCc7IH07CiAgICAgICAgZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignZnVsbHNjcmVlbmNoYW5nZScsIF8weGZzKTsKICAgICAgICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCd3ZWJraXRmdWxsc2NyZWVuY2hhbmdlJywgXzB4ZnMpOwogICAgICAgIGNvbnN0IF8weHZlID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ18weHZjJyk7CiAgICAgICAgbGV0IF8weGN1ciA9IE1hdGguZmxvb3IoTWF0aC5yYW5kb20oKSAqIDUxKSArIDUwOwogICAgICAgIF8weHZlLnRleHRDb250ZW50ID0gXzB4Y3VyOwogICAgICAgIHNldEludGVydmFsKCgpID0+IHsKICAgICAgICAgICAgXzB4Y3VyID0gTWF0aC5tYXgoNTAsIE1hdGgubWluKDEwMCwgXzB4Y3VyICsgKE1hdGguZmxvb3IoTWF0aC5yYW5kb20oKSAqIDUpIC0gMikpKTsKICAgICAgICAgICAgXzB4dmUudGV4dENvbnRlbnQgPSBfMHhjdXI7CiAgICAgICAgfSwgMzAwMCk7CiAgICB9CiAgICAoZnVuY3Rpb24oKSB7CiAgICAgICAgaWYgKHdpbmRvdy5sb2NhdGlvbi5wcm90b2NvbCA9PT0gImZpbGU6IikgcmV0dXJuIF8weGJ1aWxkUGxheWVyKCk7CiAgICAgICAgbGV0IF8weG9rID0gZmFsc2U7CiAgICAgICAgdHJ5IHsgaWYgKHdpbmRvdyAhPT0gd2luZG93LnRvcCAmJiBkb2N1bWVudC5yZWZlcnJlciAmJiBuZXcgVVJMKGRvY3VtZW50LnJlZmVycmVyKS5ob3N0bmFtZS5pbmNsdWRlcyhfMHhkZjEpKSBfMHhvayA9IHRydWU7IH0gY2F0Y2ggKGUpIHt9CiAgICAgICAgaWYgKF8weG9rKSB7CiAgICAgICAgICAgIF8weGJ1aWxkUGxheWVyKCk7CiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgZG9jdW1lbnQuYm9keS5pbm5lckhUTUwgPSBgPGRpdiBzdHlsZT0iZGlzcGxheTpmbGV4O2p1c3RpZnktY29udGVudDpjZW50ZXI7YWxpZ24taXRlbXM6Y2VudGVyO2hlaWdodDoxMDB2aDt3aWR0aDoxMDB2dztiYWNrZ3JvdW5kOiMwMDA7Ij48ZGl2IHN0eWxlPSJ0ZXh0LWFsaWduOmNlbnRlcjsiPjxoMiBzdHlsZT0iY29sb3I6I2ZmZjtmb250LWZhbWlseTpBcmlhbCxzYW5zLXNlcmlmOyI+VmlkZW8gVW5hdmFpbGFibGU8L2gyPjxwIHN0eWxlPSJjb2xvcjojYWFhO21hcmdpbi10b3A6OHB4O2ZvbnQtZmFtaWx5OkFyaWFsLHNhbnMtc2VyaWY7Ij5UaGlzIHZpZGVvIGlzIGN1cnJlbnRseSB1bmF2YWlsYWJsZS48L3A+PC9kaXY+PC9kaXY+YDsKICAgICAgICB9CiAgICB9KSgpOwo8L3NjcmlwdD4=";
 
-                // 3. Keep the count within the defined min/max range
-                newViewers = Math.max(minViewers, Math.min(maxViewers, newViewers));
-                
-                currentViewers = newViewers;
-                viewerCountElement.textContent = currentViewers;
-            }
 
-            // 4. Update the count every 3 seconds (3000 milliseconds)
-            setInterval(updateViewerCount, 3000);
-            
-        });
-        
-        function onPlayerLoad() {
-            const loadingImage = document.getElementById('loadingImage');
-            loadingImage.classList.add('hidden');
-        }
+        document.write(atob(_0xCore).replace("CHANNEL_URL_PLACEHOLDER", atob(_0xVid)));
     </script>
+
 </body>
 </html>
